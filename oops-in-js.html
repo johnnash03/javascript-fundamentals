@@ -1,0 +1,66 @@
+<script>
+  // Object creation in javascript
+  /*
+    First way
+    Same function getName is created each time an object is created.
+  */
+  function userFirst(name) {
+    let ob = {
+      name: name,
+      getName: function() {
+        console.log(name);
+      }
+    }
+    return ob;
+  }
+
+  user1 = userFirst("John");
+  user1.getName();
+
+  /*
+    Second Way: Using Object.create
+  */
+
+  let userFunc = {
+    getName: function(name) {
+      console.log(this.name)
+    }
+  }
+
+  function userSecond(name) {
+    let ob = Object.create(userFunc);// ob __proto__ is set as userFunc i.e., userFunc is the prototype of ob.
+    ob.name = name;
+    return ob;
+  }
+
+  user2 = userSecond("Stephen");
+  user2.getName();
+
+  /*
+    Third way: Using new keyword
+  */
+
+  function userThird(name) {
+    this.name = name;
+  }
+  userThird.prototype.getName = function() {
+    console.log(this.name);
+  }
+  user3 = new userThird("Riya"); // new keyword is important else this in userThird will be global context.
+  user3.getName();
+
+  /*
+    Fourth way: class syntactic sugar
+  */
+
+  class UserFourth {
+    constructor(name) {
+      this.name = name;
+    }
+    getName() {
+      console.log(this.name);
+    }
+  }
+  user4 = new UserFourth("Ashley");
+  user4.getName();
+</script>
