@@ -1,0 +1,24 @@
+<script>
+  function User(name) {
+
+    function somePrivateUtitlity() {
+
+    }
+    
+    function sayHello() {
+      console.log("Hello " + name);
+    }
+
+    function sayBye() {
+      console.log("Bye " + name);
+    }
+
+    return {
+      sayHello: sayHello,
+      sayBye: sayBye
+    }
+  }
+  let user1 = User("Luke");
+  user1.sayHello();
+  user1.sayBye();
+</script>
