@@ -1,0 +1,11 @@
+<script>
+  function * genEx() {
+    console.log( "Welcome" );
+    yield "to";
+    console.log( "Matrix" );
+  }
+
+  let it = genEx();
+  console.log(it.next().value);
+  it.next();
+</script>
